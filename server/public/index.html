@@ -11,6 +11,25 @@
 </head>
 <body>
     <h1>Weekend Homework 9 - Task Scheduler</h1>
-    
+    <div id="addTaskDiv">
+            <h2>Add a Task</h2>
+            <input type="text" id="taskIn" value="" placeholder="Task">
+            <input type="text" id="statusIn" value="" placeholder="Status">
+            <button type="button" id="addButton">Add Task</button>
+    </div>
+    <div id="taskDiv">
+            <table id='taskTable'>
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Task</th>
+                        <th>Status</th>
+                        <th>Mark Complete</th>
+                    </tr>
+                </thead>
+                <tbody id="taskList">
+                </tbody>
+            </table>
+        </div>
 </body>
 </html>

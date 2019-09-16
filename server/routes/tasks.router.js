@@ -9,10 +9,11 @@ router.get('/', (req, res) => {
     pool.query(query).then(result => { // anything before .then is a PROMISE
     // Send the results back in an object
     res.send(result.rows);
-    console.log(result.rows);
+    }).catch(error => {
+        console.log('error getting tasks', error);
+        res.sendStatus(500);
     })
 }) // end GET request
-
 
 // module exports
 module.exports = router;
