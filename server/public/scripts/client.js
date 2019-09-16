@@ -2,8 +2,8 @@ $(document).ready(onReady);
 
 // onReady 
 function onReady() {
-    console.log('JQ');
     // call getTasks to show on the DOM
+    $('#taskList').on('click', '.completeButton', completeTask);
     getTasks();
 } // end onReady
 
@@ -30,11 +30,22 @@ function getTasks() {
                     <td>${task.id}</td>
                     <td>${task.description}</td>
                     <td>${task.is_complete}</td>
-                    <button class="completeButton">Complete</button>
+                    <td><button class="completeButton" data-taskid="${task.id}">Complete</button></td>
                 </tr>`
             )}
         })
     })
 }
+
+function completeTask() {
+
+    $.ajax({
+        type: 'PUT',
+        url: `/tasks/${$(this).data().taskid}`
+    }).then( function(response) {
+        getTasks();
+    })
+} // end completeTask
+
 
 
